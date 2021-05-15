@@ -4,10 +4,10 @@ import './switcher.js';
 import './styles.css';
 
 const menuContainer = document.querySelector('.js-menu');
-const menuMarkUp = menuListRender(menuItem);
 
-const menuRender = menuItem => {
+const menu = menuItem => {
   return menuItem.map(menuTemplate).join('');
 };
 
-menuContainer.insertAdjacentHTML('beforeend', menuMarkUp);
+const menuList = menu(menuItem);
+menuContainer.insertAdjacentHTML('beforeend', menuList);
