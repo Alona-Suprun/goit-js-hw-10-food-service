@@ -5,9 +5,9 @@ import './styles.css';
 
 const menuContainer = document.querySelector('.js-menu');
 
-const menu = menuItem => {
-  return menuItem.map(menuTemplate).join('');
+const createMenu = menuItem => {
+  return menuTemplate(menuItem);
 };
 
-const menuList = menu(menuItem);
+const menuList = createMenu(menuItem);
 menuContainer.insertAdjacentHTML('beforeend', menuList);

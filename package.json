@@ -23,12 +23,23 @@
   "devDependencies": {
     "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.5",
+    "parcel-plugin-custom-dist-structure": "^1.1.17",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "parcel-plugin-nuke-dist": "^1.0.1"
+  },
+  "customDistStructure": {
+    "config": {
+      ".css": "css",
+      ".js": "js",
+      "images": [
+        ".jpg",
+        ".svg",
+        ".png"
+      ]
+    }
   }
 }

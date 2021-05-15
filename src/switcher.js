@@ -6,14 +6,14 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-body.classList.add(Theme.LIGHT);
-const onChangeSwitcherTheme = e => {
-  if (e.target.classList.contains(Theme.LIGHT)) {
-    e.classList.remove(Theme.LIGHT);
-    e.classList.add(Theme.DARK);
+const onChangeSwitcherTheme = () => {
+  body.classList.add(Theme.LIGHT);
+  if (body.classList.value === Theme.LIGHT) {
+    body.classList.add(Theme.DARK);
+    body.classList.remove(Theme.LIGHT);
   } else {
-    e.classList.remove(Theme.DARK);
-    e.classList.add(Theme.LIGHT);
+    body.classList.add(Theme.LIGHT);
+    body.classList.remove(Theme.DARK);
   }
 };
 
