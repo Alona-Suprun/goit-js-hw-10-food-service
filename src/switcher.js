@@ -15,6 +15,20 @@ const onChangeSwitcherTheme = () => {
     body.classList.add(Theme.LIGHT);
     body.classList.remove(Theme.DARK);
   }
+  const bodyTheme = body.classList.value;
+  localStorage.setItem('custome-theme', bodyTheme);
 };
 
 switcher.addEventListener('change', onChangeSwitcherTheme);
+
+const saveTheme = () => {
+  const customeTheme = localStorage.getItem('custome-theme');
+  if (customeTheme) {
+    body.classList.add(customeTheme);
+    if (body.classList.value === Theme.DARK) {
+      switcher.checked = true;
+    }
+  }
+};
+
+saveTheme();

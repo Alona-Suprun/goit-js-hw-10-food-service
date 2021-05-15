@@ -13,12 +13,12 @@
         <p class='card__descr'>
           {{description}}
         </p>
-        {{#each ingredients}}
-          <ul class='tag-list'>
+        <ul class='tag-list'>
+          {{#each ingredients}}
             <li class='tag-list__item'>{{this}}</li>
+          {{/each}}
+        </ul>
 
-          </ul>
-        {{/each}}
       </div>
 
       <button class='card__button button'>
