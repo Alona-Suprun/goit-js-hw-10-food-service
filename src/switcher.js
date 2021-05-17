@@ -6,25 +6,25 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
+const switchTheme = (oldTheme, newTheme) => {
+  body.classList.add(newTheme);
+  body.classList.remove(oldTheme);
+  localStorage.setItem('custom-theme', newTheme);
+};
+
 const onChangeSwitcherTheme = e => {
-  if (e.target.checked === true) {
-    body.classList.add(Theme.DARK);
-    body.classList.remove(Theme.LIGHT);
-    localStorage.setItem('custom-theme', Theme.DARK);
+  if (e.target.checked) {
+    switchTheme(Theme.LIGHT, Theme.DARK);
   } else {
-    body.classList.add(Theme.LIGHT);
-    body.classList.remove(Theme.DARK);
-    localStorage.setItem('custom-theme', Theme.LIGHT);
+    switchTheme(Theme.DARK, Theme.LIGHT);
   }
 };
 
 switcher.addEventListener('change', onChangeSwitcherTheme);
 
 const saveTheme = () => {
-  const customTheme = localStorage.getItem('custom-theme');
-
-  body.classList.add(customTheme);
-  if (customTheme === Theme.DARK) {
+  if (localStorage.getItem('custom-theme') === Theme.DARK) {
+    body.classList.add(Theme.DARK);
     switcher.checked = true;
   } else {
     body.classList.add(Theme.LIGHT);
